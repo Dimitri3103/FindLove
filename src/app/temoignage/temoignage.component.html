@@ -1,0 +1,28 @@
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <hr>
+        <div class="col-12">
+            <h1 class="display-4">Témoignages de couples ayant trouvé l'amour sur <span class="logo">FindLove</span></h1>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div *ngFor="let temoignage of temoignageList; index as temoignageID" class="col-md-4 py-3">
+            <div class="card" style="width: 20rem; height: auto;">
+                <img src="assets/images/{{temoignage.imageCouple}}" class="card-img-top-center" style="height: 20rem;" alt="{{temoignage.couple}}">
+                <div class="card-body">
+                    <h5 class="card-title" [title]="'Plus de détails' + temoignage.couple">
+                        {{temoignage.couple}}
+                    </h5>
+                    <p *ngIf="temoignage.message" class="card-text">
+                        {{temoignage.message|slice:0:100}} [...]
+                    </p>
+                    <a [routerLink]="['/temoignage/temoignage-details/',temoignageID]" class="btn btn-outline-secondary m-2">Lire tout le témoignage</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

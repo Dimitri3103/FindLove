@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-employee">
+        <!-- form card register -->
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="inputName">Nom du Couple</label>
+                    <input class="form-control" type="text" formControlName="name">
+                    <!-- error -->
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+                        Nom du couple obligatoire
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3">Message du couple</label>
+                    <input class="form-control" type="text" formControlName="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputVerify3">Photo du couple</label>
+                    <input class="form-control" type="text" formControlName="phoneNumber">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Ajouter</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- form card register -->
+</div>

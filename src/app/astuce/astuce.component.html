@@ -1,0 +1,32 @@
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <hr>
+        <div class="col-12">
+            <h1 class="display-4">Astuces pour trouver l'amour</h1>
+        </div>
+        <div class="col-12">
+            <p class="lead">
+                Vous avez besoin de conseils pour trouver la perle rare ?
+            </p>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div *ngFor="let astuce of astuceList; index as astuceID" class="col-md-4 py-3">
+            <div class="card" style="width: 20rem; height: auto;">
+                <img src="assets/images/{{astuce.image}}" class="card-img-top" style="height: auto;" alt="{{astuce.titre}}">
+                <div class="card-body">
+                    <h4 class="card-title" [title]="'Plus de détails' + astuce.titre">
+                        {{astuce.titre}}
+                    </h4>
+                    <p *ngIf="astuce.description" class="card-text">
+                        {{astuce.description|slice:0:100}} [...]
+                    </p>
+                    <a [routerLink]="['/astuce/astuce-details/',astuceID]" class="btn btn-outline-secondary m-2">Détails</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
